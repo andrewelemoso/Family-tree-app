@@ -263,6 +263,9 @@ function renderTree(data) {
   
   drawNodes(data);
   
+  // Append SVG to container
+  container.appendChild(svg);
+  
   // Add legend
   const legend = document.createElement('div');
   legend.className = 'legend';
