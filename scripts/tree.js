@@ -9,9 +9,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     familyData = await response.json();
     
     console.log('Family data loaded:', familyData);
+    console.log('Total people:', familyData.people.length);
     
     // Build hierarchical tree structure
     const tree = buildTreeStructure(familyData);
+    
+    console.log('Tree structure built:', tree);
     
     // Initialize tree visualization
     renderTree(tree);
@@ -21,7 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     
   } catch (error) {
     console.error('Error loading family tree data:', error);
-    document.getElementById('tree-container').innerHTML = '<p style="padding: 2rem; color: red;">Error loading family tree data</p>';
+    document.getElementById('tree-container').innerHTML = '<p style="padding: 2rem; color: red;">Error loading family tree data: ' + error.message + '</p>';
   }
 });
 
@@ -29,37 +32,34 @@ document.addEventListener('DOMContentLoaded', async () => {
 function buildTreeStructure(data) {
   const peopleById = {};
   
-  // Index all people by ID, preserving all properties
+  // Index all people by ID
   data.people.forEach(person => {
     peopleById[person.id] = {
-      id: person.id,
-      name: person.name,
-      generation: person.generation,
-      status: person.status,
-      dataCompleteness: person.dataCompleteness,
-      aliases: person.aliases,
-      title: person.title,
-      origin: person.origin,
-      religion: person.religion,
-      period: person.period,
-      notes: person.notes,
-      spouse: person.spouse,
-      children: person.children || [],
-      allData: person
+      ...person,
+      children: person.children || []
     };
   });
   
+  console.log('Indexed people:', Object.keys(peopleById).length);
+  
   // Build tree hierarchy recursively
-  function buildNode(personId) {
+  function buildNode(personId, visited = new Set()) {
+    if (visited.has(personId)) return null; // Prevent infinite loops
+    
     const person = peopleById[personId];
-    if (!person) return null;
+    if (!person) {
+      console.warn('Person not found:', personId);
+      return null;
+    }
+    
+    visited.add(personId);
     
     const node = {
       id: person.id,
       name: person.name,
-      data: person.allData,
+      data: person,
       children: (person.children || [])
-        .map(childId => buildNode(childId))
+        .map(childId => buildNode(childId, new Set(visited)))
         .filter(n => n !== null)
     };
     
@@ -67,13 +67,20 @@ function buildTreeStructure(data) {
   }
   
   // Start with Oluwo Adesina (generation 0, the root)
-  const mainRoot = peopleById['oluwo_adesina'];
+  const mainRootId = 'oluwo_adesina';
+  const mainRoot = peopleById[mainRootId];
+  
   if (!mainRoot) {
-    console.error('Root person not found');
+    console.error('Root person not found:', mainRootId);
+    console.error('Available people:', Object.keys(peopleById).slice(0, 10));
     return null;
   }
   
-  return buildNode(mainRoot.id);
+  console.log('Starting tree from:', mainRoot.name);
+  const tree = buildNode(mainRootId);
+  console.log('Tree built with root:', tree?.name);
+  
+  return tree;
 }
 
 // Render the tree using SVG
