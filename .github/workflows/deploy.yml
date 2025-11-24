@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Validate Code
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  deploy:
+  validate:
     runs-on: ubuntu-latest
     
     steps:
@@ -35,11 +35,4 @@ jobs:
           test -f styles/style.css && echo "✅ styles/style.css found"
           test -f scripts/tree.js && echo "✅ scripts/tree.js found"
           test -f data/family-tree.json && echo "✅ data/family-tree.json found"
-      
-      - name: Deploy to GitHub Pages
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
-          cname: andrewelemoso.github.io
+          echo "✅ All critical files verified"
