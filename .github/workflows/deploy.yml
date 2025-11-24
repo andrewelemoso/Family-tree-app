@@ -1,0 +1,45 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Validate JSON files
+        run: |
+          python3 -m json.tool data/family-tree.json > /dev/null && echo "✅ JSON is valid"
+      
+      - name: Verify HTML structure
+        run: |
+          if grep -q "<!DOCTYPE html>" index.html; then
+            echo "✅ HTML structure verified"
+          else
+            echo "❌ HTML structure invalid"
+            exit 1
+          fi
+      
+      - name: Check critical files exist
+        run: |
+          test -f index.html && echo "✅ index.html found"
+          test -f styles/style.css && echo "✅ styles/style.css found"
+          test -f scripts/tree.js && echo "✅ scripts/tree.js found"
+          test -f data/family-tree.json && echo "✅ data/family-tree.json found"
+      
+      - name: Deploy to GitHub Pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          cname: andrewelemoso.github.io
