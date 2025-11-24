@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adesina-Sobowale Family Tree</title>
+  <meta name="description" content="Interactive family tree of the Adesina-Sobowale dynasty from Abeokuta, Nigeria. Explore multi-generational relationships and family history.">
+  <meta name="keywords" content="family tree, Adesina, Sobowale, genealogy, Abeokuta, Nigeria">
+  
+  <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+  <header>
+    <h1>🌳 Adesina-Sobowale Family Tree</h1>
+    <p>Compiled by Elemoso Abee | Interactive genealogy of the dynasty from Abeokuta, Nigeria</p>
+  </header>
+  
+  <div class="container">
+    <!-- Main Tree Area -->
+    <div class="main-content">
+      <!-- Search Area -->
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search by name, nickname, or details... (e.g., 'Iya Agba', 'Browne', 'Reverend')"
+          aria-label="Search family members"
+        >
+        <div class="search-results-count" id="results-count"></div>
+      </div>
+      
+      <!-- Tree Container -->
+      <div id="tree-container">
+        <p style="padding: 2rem; text-align: center; color: #95a5a6;">Loading family tree...</p>
+      </div>
+    </div>
+    
+    <!-- Sidebar with Person Details -->
+    <aside class="sidebar">
+      <div class="sidebar-content">
+        <div class="sidebar-empty">
+          <p>👋 Welcome to the Family Tree!</p>
+          <p style="margin-top: 1rem; font-size: 0.85rem;">Click on any person in the tree to view their details, relationships, and family connections.</p>
+        </div>
+      </div>
+      <div class="sidebar-footer">
+        Last Updated: November 2025
+      </div>
+    </aside>
+  </div>
+  
+  <!-- Scripts -->
+  <script src="./scripts/tree.js"></script>
+</body>
+</html>

@@ -1,0 +1,869 @@
+{
+  "metadata": {
+    "title": "Adesina-Sobowale Family Tree",
+    "lastUpdated": "2025-11-24",
+    "compiledBy": "Elemoso Abee",
+    "description": "Multi-generational family history of the Adesina-Sobowale dynasty from Ilawo, Abeokuta"
+  },
+  "people": [
+    {
+      "id": "oluwo_adesina",
+      "name": "Oluwo Adesina",
+      "generation": 0,
+      "title": "Grand Patriarch",
+      "period": "1850-1900",
+      "location": "Ilawo Township",
+      "notes": "Head of Ilawo township. Had many wives.",
+      "dataCompleteness": 30
+    },
+    {
+      "id": "ibiyemi_adesina",
+      "name": "Ibiyemi Adesina",
+      "generation": 1,
+      "title": "Wife of Oluwo Adesina",
+      "origin": "Ikole Ekiti",
+      "notes": "Former slave girl, married by Oluwo Adesina. Had 2 children that survived.",
+      "spouse": "oluwo_adesina",
+      "children": ["iya_agba_adesina", "asimowu_ekundayo"],
+      "dataCompleteness": 40
+    },
+    {
+      "id": "iya_agba_adesina",
+      "name": "Iya Agba Adesina",
+      "generation": 1,
+      "title": "Last wife of Pa Otajejo Sobowale",
+      "spouse": "pa_otajejo_sobowale",
+      "children": ["dorcas_bankole", "amidu_sobowale", "lasisi_sobowale", "stephen_sobowale", "sikirat_elemoso"],
+      "notes": "Mother of the 5 main branches. Highly fruitful.",
+      "dataCompleteness": 85
+    },
+    {
+      "id": "asimowu_ekundayo",
+      "name": "Asimowu Ekundayo Adesina (Iya Kekere)",
+      "generation": 1,
+      "title": "Junior Sister of Iya Agba",
+      "notes": "Never had children of her own but trained and brought up the children of her senior sister Iya Agba.",
+      "dataCompleteness": 35
+    },
+    {
+      "id": "pa_otajejo_sobowale",
+      "name": "Pa Otajejo Sobowale",
+      "generation": 1,
+      "title": "Grand Patriarch of Sobowale Dynasty",
+      "origin": "Remo (sojourner to Abeokuta)",
+      "spouse": "iya_agba_adesina",
+      "notes": "First-born: Baba Ogboye (father of Prof. Idowu Sobowale). Last-born: Abeni (mother mentioned in text).",
+      "dataCompleteness": 50
+    },
+    {
+      "id": "dorcas_bankole",
+      "name": "Dorcas Olaere Bankole",
+      "generation": 2,
+      "aliases": ["Mama Daddy Alaja", "Mama Saro"],
+      "religion": "Christian (formerly Muslim)",
+      "spouse": "pa_bankole",
+      "children": ["olayinka_thomas", "olawumi_browne", "tejumola_sodeinde", "folasade_akibayo"],
+      "notes": "Had 5 children - 4 daughters survived, 1 son died",
+      "dataCompleteness": 70
+    },
+    {
+      "id": "olayinka_thomas",
+      "name": "Mrs. Olayinka Thomas",
+      "generation": 3,
+      "children": ["sanya_thomas", "akinbayo_thomas"],
+      "dataCompleteness": 60
+    },
+    {
+      "id": "sanya_thomas",
+      "name": "Mr. Sanya Thomas",
+      "generation": 4,
+      "children": ["kemi_thomas", "tunde_thomas", "kayode_thomas", "mobola_thomas"],
+      "dataCompleteness": 50
+    },
+    {
+      "id": "kemi_thomas",
+      "name": "Kemi Thomas",
+      "generation": 5,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "tunde_thomas",
+      "name": "Tunde Thomas",
+      "generation": 5,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "kayode_thomas",
+      "name": "Kayode Thomas",
+      "generation": 5,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "mobola_thomas",
+      "name": "Mobola Thomas",
+      "generation": 5,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "akinbayo_thomas",
+      "name": "Engr. Akinbayo Thomas",
+      "generation": 4,
+      "children": ["dupe_thomas", "timilehin_thomas"],
+      "notes": "Incomplete data - one boy's name forgotten",
+      "dataCompleteness": 40
+    },
+    {
+      "id": "dupe_thomas",
+      "name": "Dupe Thomas",
+      "generation": 5,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "timilehin_thomas",
+      "name": "Timilehin Thomas",
+      "generation": 5,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "olawumi_browne",
+      "name": "Mrs. Olawumi Browne/Adesina",
+      "generation": 3,
+      "children": ["alexander_browne", "ayisat_ishawu", "adekunle_adesina", "tunde_adesina", "mufu_adesina", "emkay_adesina", "taiwo_adesina", "kehinde_adesina"],
+      "notes": "Had 8 children. Full list of grandchildren not provided.",
+      "dataCompleteness": 45
+    },
+    {
+      "id": "alexander_browne",
+      "name": "Reverend Alexander Adeyemi Browne",
+      "generation": 4,
+      "dataCompleteness": 25
+    },
+    {
+      "id": "ayisat_ishawu",
+      "name": "Anti Ayisat (nee Adesina Sibesibe) Ishawu",
+      "generation": 4,
+      "dataCompleteness": 25
+    },
+    {
+      "id": "adekunle_adesina",
+      "name": "Adekunle Adesina",
+      "generation": 4,
+      "dataCompleteness": 25
+    },
+    {
+      "id": "tunde_adesina",
+      "name": "Late Tunde Adesina",
+      "generation": 4,
+      "status": "deceased",
+      "dataCompleteness": 25
+    },
+    {
+      "id": "mufu_adesina",
+      "name": "Mufu Adesina",
+      "generation": 4,
+      "dataCompleteness": 25
+    },
+    {
+      "id": "emkay_adesina",
+      "name": "Emkay Adesina",
+      "generation": 4,
+      "dataCompleteness": 25
+    },
+    {
+      "id": "taiwo_adesina",
+      "name": "Taiwo Adesina",
+      "generation": 4,
+      "dataCompleteness": 25
+    },
+    {
+      "id": "kehinde_adesina",
+      "name": "Kehinde Adesina",
+      "generation": 4,
+      "dataCompleteness": 25
+    },
+    {
+      "id": "tejumola_sodeinde",
+      "name": "Late Mrs. Tejumola Sodeinde/Oloro",
+      "generation": 3,
+      "status": "deceased",
+      "children": ["jumoke_adeyemi", "yemisi_idowu", "saidat_oloro", "kunle_oloro", "yemi_oloro"],
+      "notes": "Had 5 children. Grandchildren names not fully provided.",
+      "dataCompleteness": 50
+    },
+    {
+      "id": "jumoke_adeyemi",
+      "name": "Mrs. Jumoke Adeyemi (nee Sodeinde)",
+      "generation": 4,
+      "dataCompleteness": 30
+    },
+    {
+      "id": "yemisi_idowu",
+      "name": "Late Mrs. Yemisi Idowu (nee Sodeinde)",
+      "generation": 4,
+      "status": "deceased",
+      "dataCompleteness": 30
+    },
+    {
+      "id": "saidat_oloro",
+      "name": "Mrs. Saidat (nee Oloro)",
+      "generation": 4,
+      "dataCompleteness": 30
+    },
+    {
+      "id": "kunle_oloro",
+      "name": "Mr. Kunle Oloro",
+      "generation": 4,
+      "dataCompleteness": 30
+    },
+    {
+      "id": "yemi_oloro",
+      "name": "Mr. Yemi Oloro",
+      "generation": 4,
+      "dataCompleteness": 30
+    },
+    {
+      "id": "folasade_akibayo",
+      "name": "Late Mrs. Folasade Akibayo",
+      "generation": 3,
+      "status": "deceased",
+      "children": ["bababunmi_akibayo", "bimpe_williams", "akin_akibayo", "olugbenga_akibayo", "busola_adesanya", "mayowa_akibayo"],
+      "notes": "Had 6 children. Grandchildren names not fully provided.",
+      "dataCompleteness": 50
+    },
+    {
+      "id": "bababunmi_akibayo",
+      "name": "Late Mr. Bababunmi Akibayo",
+      "generation": 4,
+      "status": "deceased",
+      "dataCompleteness": 25
+    },
+    {
+      "id": "bimpe_williams",
+      "name": "Late Mrs. Bimpe Williams",
+      "generation": 4,
+      "status": "deceased",
+      "dataCompleteness": 25
+    },
+    {
+      "id": "akin_akibayo",
+      "name": "Mr. Akin Akibayo",
+      "generation": 4,
+      "dataCompleteness": 25
+    },
+    {
+      "id": "olugbenga_akibayo",
+      "name": "Mr. Olugbenga Akibayo",
+      "generation": 4,
+      "dataCompleteness": 25
+    },
+    {
+      "id": "busola_adesanya",
+      "name": "Mrs. Busola Adesanya-Yusuf",
+      "generation": 4,
+      "dataCompleteness": 25
+    },
+    {
+      "id": "mayowa_akibayo",
+      "name": "Late Mrs. Mayowa Akibayo",
+      "generation": 4,
+      "status": "deceased",
+      "dataCompleteness": 25
+    },
+    {
+      "id": "amidu_sobowale",
+      "name": "Late Alhaji Amidu Adebodun Sobowale",
+      "generation": 2,
+      "status": "deceased",
+      "title": "Had 5 wives",
+      "notes": "Extensive family across 5 marriages. Incomplete data for many descendants.",
+      "dataCompleteness": 55
+    },
+    {
+      "id": "mulikat_wife",
+      "name": "Mummy Anti Mulikat",
+      "generation": 2,
+      "spouse": "amidu_sobowale",
+      "children": ["mulikat_oni", "muyi_sobowale", "iya_abiba", "waheed_sobowale", "monsurat_balogun"],
+      "dataCompleteness": 35
+    },
+    {
+      "id": "mulikat_oni",
+      "name": "Mrs. Mulikat Oni",
+      "generation": 3,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "muyi_sobowale",
+      "name": "Late Anti Muyi",
+      "generation": 3,
+      "status": "deceased",
+      "dataCompleteness": 20
+    },
+    {
+      "id": "iya_abiba",
+      "name": "Late Iya Abiba",
+      "generation": 3,
+      "status": "deceased",
+      "dataCompleteness": 20
+    },
+    {
+      "id": "waheed_sobowale",
+      "name": "Mr. Waheed Sobowale",
+      "generation": 3,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "monsurat_balogun",
+      "name": "Mrs. Monsurat Balogun",
+      "generation": 3,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "silifat_wife",
+      "name": "Alhaja mummy Anti Silifat",
+      "generation": 2,
+      "spouse": "amidu_sobowale",
+      "children": ["silifat_olateju", "taju_sobowale", "risikat_alabede", "fausat_alimi"],
+      "dataCompleteness": 50
+    },
+    {
+      "id": "silifat_olateju",
+      "name": "Mrs. Silifat Olabisi Olateju",
+      "generation": 3,
+      "children": ["yinka_olateju", "sola_olateju", "tolu_olateju", "biola_olateju", "yomi_olateju"],
+      "dataCompleteness": 40
+    },
+    {
+      "id": "yinka_olateju",
+      "name": "Yinka Olateju",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "sola_olateju",
+      "name": "Sola Olateju",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "tolu_olateju",
+      "name": "Tolu Olateju",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "biola_olateju",
+      "name": "Biola Olateju",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "yomi_olateju",
+      "name": "Yomi Olateju",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "taju_sobowale",
+      "name": "Late Mr. Taju Sobowale",
+      "generation": 3,
+      "status": "deceased",
+      "children": ["kunle_sobowale", "sister_taju"],
+      "dataCompleteness": 30
+    },
+    {
+      "id": "kunle_sobowale",
+      "name": "Kunle Sobowale",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "sister_taju",
+      "name": "Sister of Kunle (Name Unknown)",
+      "generation": 4,
+      "dataCompleteness": 10
+    },
+    {
+      "id": "risikat_alabede",
+      "name": "Late Alhaja Risikat Bolanle Alabede",
+      "generation": 3,
+      "status": "deceased",
+      "children": ["dipo_alabede", "seni_alabede", "kola_alabede", "toyin_alabede"],
+      "dataCompleteness": 35
+    },
+    {
+      "id": "dipo_alabede",
+      "name": "Dipo Alabede",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "seni_alabede",
+      "name": "Seni Alabede",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "kola_alabede",
+      "name": "Kola Alabede",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "toyin_alabede",
+      "name": "Toyin Alabede",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "fausat_alimi",
+      "name": "Mrs. Fausat Atinuke Alimi",
+      "generation": 3,
+      "children": ["debo_alimi", "sister_debo"],
+      "dataCompleteness": 30
+    },
+    {
+      "id": "debo_alimi",
+      "name": "Debo Alimi",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "sister_debo",
+      "name": "Sister of Debo (Name Unknown)",
+      "generation": 4,
+      "dataCompleteness": 10
+    },
+    {
+      "id": "safurat_wife",
+      "name": "Late Alhaja Safurat Sobowale",
+      "generation": 2,
+      "spouse": "amidu_sobowale",
+      "status": "deceased",
+      "children": ["abdul_rafiu_sobowale", "shifawu_sobowale", "bushirat_sobowale", "jelili_sobowale"],
+      "dataCompleteness": 60
+    },
+    {
+      "id": "abdul_rafiu_sobowale",
+      "name": "Late Abdul Rafiu Sobowale (Turska/Nelly)",
+      "generation": 3,
+      "status": "deceased",
+      "children": ["maria_asunloye", "moses_sobowale_1", "hannah_sofidiya", "temidayo_sobowale", "itunnu_oyedele", "samuel_sobowale", "solomon_sobowale", "jonathan_sobowale"],
+      "dataCompleteness": 45
+    },
+    {
+      "id": "maria_asunloye",
+      "name": "Mrs. Maria Asunloye",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "moses_sobowale_1",
+      "name": "Moses Sobowale",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "hannah_sofidiya",
+      "name": "Mrs. Hannah Sofidiya",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "temidayo_sobowale",
+      "name": "Late Temidayo Sobowale",
+      "generation": 4,
+      "status": "deceased",
+      "dataCompleteness": 20
+    },
+    {
+      "id": "itunnu_oyedele",
+      "name": "Mrs. Itunnu Oyedele",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "samuel_sobowale",
+      "name": "Samuel Sobowale",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "solomon_sobowale",
+      "name": "Solomon Sobowale",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "jonathan_sobowale",
+      "name": "Jonathan Sobowale",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "shifawu_sobowale",
+      "name": "Mrs. Shifawu Adunni Sobowale (Iya Alero)",
+      "generation": 3,
+      "children": ["alero_sobowale", "gbenga_sobowale", "tunde_sobowale_2", "racheal_sobowale", "moses_wanikones", "tope_oluyole"],
+      "dataCompleteness": 40
+    },
+    {
+      "id": "alero_sobowale",
+      "name": "Alero Sobowale",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "gbenga_sobowale",
+      "name": "Gbenga Sobowale",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "tunde_sobowale_2",
+      "name": "Tunde Sobowale",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "racheal_sobowale",
+      "name": "Racheal Sobowale",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "moses_wanikones",
+      "name": "Moses Wanikones",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "tope_oluyole",
+      "name": "Tope Oluyole",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "bushirat_sobowale",
+      "name": "Late Mrs. Bushirat Atobatele",
+      "generation": 3,
+      "status": "deceased",
+      "children": ["aji_sobowale", "kb_sobowale", "kamilu_sobowale"],
+      "notes": "Incomplete data - other children names forgotten",
+      "dataCompleteness": 30
+    },
+    {
+      "id": "aji_sobowale",
+      "name": "Aji Sobowale",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "kb_sobowale",
+      "name": "KB Sobowale",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "kamilu_sobowale",
+      "name": "Kamilu Sobowale",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "jelili_sobowale",
+      "name": "Mr. Jelili Anthony Sobowale (Shojelele)",
+      "generation": 3,
+      "children": ["tolu_jelili", "michael_jelili"],
+      "dataCompleteness": 35
+    },
+    {
+      "id": "tolu_jelili",
+      "name": "Tolu Jelili",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "michael_jelili",
+      "name": "Michael Jelili",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "muibi_wife",
+      "name": "Late Mummy Muibi",
+      "generation": 2,
+      "spouse": "amidu_sobowale",
+      "status": "deceased",
+      "children": ["muibi_child", "yakubu_sobowale"],
+      "notes": "Full list of grandchildren not provided",
+      "dataCompleteness": 25
+    },
+    {
+      "id": "muibi_child",
+      "name": "Muibi",
+      "generation": 3,
+      "dataCompleteness": 15
+    },
+    {
+      "id": "yakubu_sobowale",
+      "name": "Yakubu (Yaks) Sobowale",
+      "generation": 3,
+      "dataCompleteness": 15
+    },
+    {
+      "id": "sule_wife",
+      "name": "Late Alhaja Iya Sule",
+      "generation": 2,
+      "spouse": "amidu_sobowale",
+      "status": "deceased",
+      "children": ["dosunmu_child", "sulaiman_sobowale"],
+      "notes": "Had 6 children - only Sule alive, full list not provided",
+      "dataCompleteness": 25
+    },
+    {
+      "id": "dosunmu_child",
+      "name": "Late Mrs. Dosunmu",
+      "generation": 3,
+      "status": "deceased",
+      "dataCompleteness": 15
+    },
+    {
+      "id": "sulaiman_sobowale",
+      "name": "Sulaiman Bamidele Sobowale",
+      "generation": 3,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "lasisi_sobowale",
+      "name": "Late Alhaji Lasisi Sobowale",
+      "generation": 2,
+      "status": "deceased",
+      "notes": "Limited recorded information. Had many children but only a few documented.",
+      "children": ["ramota_lasisi", "basirat_lasisi", "boy_ibadan_1", "boy_ibadan_2"],
+      "dataCompleteness": 25
+    },
+    {
+      "id": "ramota_lasisi",
+      "name": "Ramota",
+      "generation": 3,
+      "dataCompleteness": 15
+    },
+    {
+      "id": "basirat_lasisi",
+      "name": "Basirat",
+      "generation": 3,
+      "dataCompleteness": 15
+    },
+    {
+      "id": "boy_ibadan_1",
+      "name": "Son (Name Unknown - in Ibadan)",
+      "generation": 3,
+      "dataCompleteness": 10
+    },
+    {
+      "id": "boy_ibadan_2",
+      "name": "Son (Name Unknown - in Ibadan)",
+      "generation": 3,
+      "dataCompleteness": 10
+    },
+    {
+      "id": "stephen_sobowale",
+      "name": "Late Stephen Olayiwola Sobowale",
+      "generation": 2,
+      "status": "deceased",
+      "religion": "Christian",
+      "notes": "Had 3 wives and multiple children",
+      "dataCompleteness": 50
+    },
+    {
+      "id": "mama_kashi",
+      "name": "Late Mama Kashi",
+      "generation": 2,
+      "spouse": "stephen_sobowale",
+      "children": ["boda_kashi"],
+      "dataCompleteness": 30
+    },
+    {
+      "id": "boda_kashi",
+      "name": "Boda Kashi Sobowale",
+      "generation": 3,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "mama_bunmi",
+      "name": "Late Mama Bunmi",
+      "generation": 2,
+      "spouse": "stephen_sobowale",
+      "children": ["anti_bunmi", "akin_sobowale", "hannah_martins", "michael_sobowale_1"],
+      "dataCompleteness": 35
+    },
+    {
+      "id": "anti_bunmi",
+      "name": "Late Anti Bunmi (Mrs. Oduala)",
+      "generation": 3,
+      "status": "deceased",
+      "dataCompleteness": 20
+    },
+    {
+      "id": "akin_sobowale",
+      "name": "Papa Rev. Akin Sobowale",
+      "generation": 3,
+      "title": "Reverend",
+      "dataCompleteness": 25
+    },
+    {
+      "id": "hannah_martins",
+      "name": "Mrs. Hannah Abiodun Martins",
+      "generation": 3,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "michael_sobowale_1",
+      "name": "Mr. Michael Sobowale",
+      "generation": 3,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "mama_ayoku",
+      "name": "Late Mama Ayoku",
+      "generation": 2,
+      "spouse": "stephen_sobowale",
+      "children": ["olusho_ayoku", "samson_ayoku", "moses_ayoku", "elijah_ayoku", "solomon_ayoku", "john_ayoku", "sarah_ayoku", "mary_ayoku"],
+      "dataCompleteness": 40
+    },
+    {
+      "id": "olusho_ayoku",
+      "name": "Olusho Ayoku",
+      "generation": 3,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "samson_ayoku",
+      "name": "Samson Sobowale",
+      "generation": 3,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "moses_ayoku",
+      "name": "Moses Sobowale",
+      "generation": 3,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "elijah_ayoku",
+      "name": "Elijah Sobowale",
+      "generation": 3,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "solomon_ayoku",
+      "name": "Solomon Sobowale",
+      "generation": 3,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "john_ayoku",
+      "name": "Soldier Boy John Sobowale",
+      "generation": 3,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "sarah_ayoku",
+      "name": "Sarah Sobowale",
+      "generation": 3,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "mary_ayoku",
+      "name": "Mary Mshow Sobowale",
+      "generation": 3,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "sikirat_elemoso",
+      "name": "Late Mrs. Sikirat Abeni Mosunmola Elemoso",
+      "generation": 2,
+      "aliases": ["Iya Idowu", "Iya Aladura", "Elizabeth"],
+      "status": "deceased",
+      "religion": "Christian (formerly Muslim)",
+      "children": ["saka_idowu", "abeeb_alaba"],
+      "notes": "Christened Elizabeth after becoming Christian",
+      "dataCompleteness": 65
+    },
+    {
+      "id": "saka_idowu",
+      "name": "Saka Idowu Elemoso",
+      "generation": 3,
+      "children": ["anton_kolawole", "antonia_kikelomo", "andrew_kolade"],
+      "dataCompleteness": 40
+    },
+    {
+      "id": "anton_kolawole",
+      "name": "Anton Kolawole Elemoso",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "antonia_kikelomo",
+      "name": "Antonia Kikelomo Elemoso",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "andrew_kolade",
+      "name": "Andrew Kolade Elemoso",
+      "generation": 4,
+      "dataCompleteness": 20
+    },
+    {
+      "id": "abeeb_alaba",
+      "name": "Abeeb Alaba Sunday Elemoso",
+      "generation": 3,
+      "children": [],
+      "dataCompleteness": 30
+    },
+    {
+      "id": "atanda_durojaiye",
+      "name": "Late Pa Atanda Durojaiye",
+      "generation": 3,
+      "status": "deceased",
+      "origin": "Agbokojo, Ibadan",
+      "relation": "cousin (raised by Iya Kekere)",
+      "notes": "Half-brother of Iya Agba and Iya Kekere was Durojaiye Adesina. Son Atanda was raised by Iya Kekere after father's death.",
+      "dataCompleteness": 45
+    },
+    {
+      "id": "durojaiye_adesina",
+      "name": "Late Pa Durojaiye Adesina",
+      "generation": 1,
+      "status": "deceased",
+      "origin": "Ilawo",
+      "notes": "Half-brother to Iya Agba and Iya Kekere. Father of Atanda Durojaiye.",
+      "relation": "Half-sibling connection to main line",
+      "dataCompleteness": 40
+    }
+  ],
+  "relationships": [
+    {
+      "from": "oluwo_adesina",
+      "to": "ibiyemi_adesina",
+      "type": "spouse"
+    },
+    {
+      "from": "ibiyemi_adesina",
+      "to": "iya_agba_adesina",
+      "type": "parent"
+    },
+    {
+      "from": "ibiyemi_adesina",
+      "to": "asimowu_ekundayo",
+      "type": "parent"
+    },
+    {
+      "from": "pa_otajejo_sobowale",
+      "to": "iya_agba_adesina",
+      "type": "spouse"
+    }
+  ]
+}
