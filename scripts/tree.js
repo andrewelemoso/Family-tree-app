@@ -108,22 +108,25 @@ function buildTreeStructure(familyData) {
     return null;
   }
   
-  // Create member map with children array
+  // Create member map
   const memberMap = new Map();
   people.forEach(member => {
     memberMap.set(member.id, {
       ...member,
-      children: member.children || []
+      children: []  // Will populate after map is complete
     });
   });
   
   // Build relationships using the children arrays already in the data
   let root = null;
   
-  memberMap.forEach(member => {
-    if (member.children && member.children.length > 0) {
-      // Replace child IDs with actual child objects
-      member.children = member.children
+  memberMap.forEach((member, memberId) => {
+    // Get original member to access their children IDs
+    const originalMember = people.find(p => p.id === memberId);
+    
+    if (originalMember && originalMember.children && originalMember.children.length > 0) {
+      // Replace child IDs with actual child objects from the map
+      member.children = originalMember.children
         .map(childId => memberMap.get(childId))
         .filter(child => child !== undefined);
     }
@@ -134,6 +137,7 @@ function buildTreeStructure(familyData) {
     }
   });
   
+  console.log('Tree built with root:', root ? root.name : 'none');
   return root;
 }
 
