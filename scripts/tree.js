@@ -128,37 +128,66 @@ function buildTreeStructure(familyData) {
   console.log('Created memberMap with', memberMap.size, 'members');
   
   // Build relationships using the children arrays already in the data
-  let root = null;
-  
   memberMap.forEach((member, memberId) => {
     // Get original member to access their children IDs
     const originalMember = people.find(p => p.id === memberId);
     
-    if (originalMember && originalMember.children && originalMember.children.length > 0) {
+    if (originalMember && originalMember.children && Array.isArray(originalMember.children) && originalMember.children.length > 0) {
       // Replace child IDs with actual child objects from the map
       member.children = originalMember.children
         .map(childId => memberMap.get(childId))
         .filter(child => child !== undefined);
       console.log('Member', memberId, 'has', member.children.length, 'children');
     }
-    
-    // Find root node (generation 0, no spouse)
-    if (!root && member.generation === 0 && !member.spouse) {
-      root = member;
-      console.log('Found root:', root.name);
-    }
   });
   
-  // Fallback: if no root found, pick first generation 0
-  if (!root) {
-    const firstGen0 = Array.from(memberMap.values()).find(m => m.generation === 0);
-    if (firstGen0) {
-      root = firstGen0;
-      console.log('Using fallback root:', root.name);
+  // Find root: the person with highest generation who has children (or generation 0)
+  let root = null;
+  
+  // First, look for generation 0 person with children
+  for (const member of memberMap.values()) {
+    if (member.generation === 0 && member.children && member.children.length > 0) {
+      root = member;
+      console.log('Found generation 0 root with children:', root.name);
+      break;
     }
   }
   
-  console.log('Final root:', root ? root.name : 'NONE');
+  // If not found, look for generation 0 with spouse who has children
+  if (!root) {
+    for (const member of memberMap.values()) {
+      if (member.generation === 0) {
+        // Check if spouse has children
+        if (member.spouse) {
+          const spouse = memberMap.get(member.spouse);
+          if (spouse && spouse.children && spouse.children.length > 0) {
+            // Use spouse as root if they have children
+            root = spouse;
+            console.log('Found spouse of gen 0 with children:', root.name);
+            break;
+          }
+        }
+        // Use this person as fallback
+        if (!root) {
+          root = member;
+          console.log('Using generation 0 as fallback root:', root.name);
+        }
+      }
+    }
+  }
+  
+  // Last resort: pick anyone with children
+  if (!root || !root.children || root.children.length === 0) {
+    for (const member of memberMap.values()) {
+      if (member.children && member.children.length > 0) {
+        root = member;
+        console.log('Using person with children as root:', root.name);
+        break;
+      }
+    }
+  }
+  
+  console.log('Final root:', root ? root.name : 'NONE', 'with', root && root.children ? root.children.length : 0, 'children');
   return root;
 }
 
