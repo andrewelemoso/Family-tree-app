@@ -102,36 +102,35 @@ function renderTree(familyData) {
 }
 
 function buildTreeStructure(familyData) {
-  if (!familyData.members || familyData.members.length === 0) {
-    console.error('No members in family data');
+  const people = familyData.people || familyData.members || [];
+  if (!people || people.length === 0) {
+    console.error('No people/members in family data');
     return null;
   }
   
   // Create member map with children array
   const memberMap = new Map();
-  familyData.members.forEach(member => {
+  people.forEach(member => {
     memberMap.set(member.id, {
       ...member,
-      children: []
+      children: member.children || []
     });
   });
   
-  // Build relationships
+  // Build relationships using the children arrays already in the data
   let root = null;
   
   memberMap.forEach(member => {
-    if (!member.parents || member.parents.length === 0) {
-      // This is a root node
-      if (!root || member.generation === 0) {
-        root = member;
-      }
-    } else {
-      // Find parent and add as child
-      const parentId = member.parents[0];
-      const parent = memberMap.get(parentId);
-      if (parent) {
-        parent.children.push(member);
-      }
+    if (member.children && member.children.length > 0) {
+      // Replace child IDs with actual child objects
+      member.children = member.children
+        .map(childId => memberMap.get(childId))
+        .filter(child => child !== undefined);
+    }
+    
+    // Find root node (generation 0)
+    if (!root || member.generation === 0) {
+      root = member;
     }
   });
   
