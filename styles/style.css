@@ -1,16 +1,15 @@
-/* Color variables - Natural tree colors */
+/* Green Tree on Black Background Theme */
 :root {
-  --tree-trunk: #8b6f47;
-  --tree-foliage-1: #2d5016;
-  --tree-foliage-2: #3d7c0f;
-  --tree-foliage-3: #4a9d6f;
-  --tree-foliage-4: #52b788;
-  --tree-foliage-5: #74c69d;
-  --tree-highlight: #ffd60a;
-  --tree-accent: #f77f00;
-  --bg-color: #f8f7f2;
-  --text-color: #2c3e50;
-  --light-text: #7f8c8d;
+  --tree-green-dark: #0a7e1f;
+  --tree-green-1: #10a32f;
+  --tree-green-2: #2ecc71;
+  --tree-green-3: #52d96d;
+  --tree-green-4: #7dde86;
+  --tree-green-5: #a8e6a8;
+  --tree-green-light: #d4f4dd;
+  --text-white: #ffffff;
+  --bg-black: #0a0e27;
+  --border-accent: #00ff00;
 }
 
 * {
@@ -21,8 +20,8 @@
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  background: linear-gradient(135deg, #f8f7f2 0%, #e8e6e1 100%);
-  color: var(--text-color);
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1a3a 100%);
+  color: var(--text-white);
   line-height: 1.6;
   min-height: 100vh;
 }
@@ -35,57 +34,61 @@ body {
 }
 
 header {
-  background: linear-gradient(135deg, #2d5016 0%, #3d7c0f 50%, #4a9d6f 100%);
-  color: white;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a2d1f 50%, #0a7e1f 100%);
+  color: var(--text-white);
   padding: 3rem 2rem;
   text-align: center;
-  box-shadow: 0 8px 16px rgba(45, 80, 22, 0.3);
-  border-bottom: 4px solid var(--tree-accent);
+  box-shadow: 0 8px 16px rgba(10, 126, 31, 0.5), inset 0 0 20px rgba(46, 204, 113, 0.1);
+  border-bottom: 4px solid var(--border-accent);
 }
 
 header h1 {
   font-size: 3rem;
   margin-bottom: 0.75rem;
   font-weight: 700;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 2px 8px rgba(46, 204, 113, 0.6);
   letter-spacing: 1px;
+  color: #2ecc71;
 }
 
 header p {
   font-size: 1.2rem;
-  opacity: 0.95;
+  opacity: 0.9;
   font-weight: 300;
+  color: #a8e6a8;
 }
 
 #tree-container {
   flex: 1;
   overflow: auto;
   padding: 3rem 2rem;
-  background: linear-gradient(to bottom, #f8f7f2 0%, #efe8de 50%, #e8dfd5 100%);
+  background: linear-gradient(to bottom, #0a0e27 0%, #1a1a3a 50%, #0a0e27 100%);
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 600px;
 }
 
 #tree-container svg {
   display: block;
   max-width: 100%;
   height: auto;
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(0 0 20px rgba(46, 204, 113, 0.4));
 }
 
 /* SVG Tree Link Styles */
 .tree-link {
   fill: none;
-  stroke: var(--tree-trunk);
-  stroke-width: 2.5;
+  stroke: #2ecc71;
+  stroke-width: 3;
   stroke-linecap: round;
   stroke-linejoin: round;
   opacity: 0.8;
+  filter: drop-shadow(0 0 4px rgba(46, 204, 113, 0.6));
 }
 
-/* SVG Node Styles - Color by generation */
+/* SVG Node Styles - Green gradient by generation */
 .tree-node {
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -93,55 +96,61 @@ header p {
 
 .tree-node rect {
   stroke-width: 2;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  filter: drop-shadow(0 0 8px rgba(46, 204, 113, 0.4));
   transition: all 0.3s ease;
-  rx: 6;
-  ry: 6;
+  rx: 8;
+  ry: 8;
 }
 
 .tree-node text {
   pointer-events: none;
-  font-size: 11px;
-  font-weight: 500;
-  fill: white;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  font-size: 12px;
+  font-weight: 600;
+  fill: #000;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.1);
 }
 
-/* Generation-specific colors */
+/* Generation-specific green colors */
 .generation-0 rect { 
-  fill: #2d5016; 
-  stroke: var(--tree-accent); 
+  fill: #0a7e1f; 
+  stroke: #00ff00; 
   stroke-width: 3;
 }
+
 .generation-1 rect { 
-  fill: #3d7c0f; 
-  stroke: #2d5016; 
-}
-.generation-2 rect { 
-  fill: #4a9d6f; 
-  stroke: #3d7c0f; 
-}
-.generation-3 rect { 
-  fill: #52b788; 
-  stroke: #4a9d6f; 
-}
-.generation-4 rect { 
-  fill: #74c69d; 
-  stroke: #52b788; 
-}
-.generation-5 rect { 
-  fill: #95d5b2; 
-  stroke: #74c69d; 
+  fill: #10a32f; 
+  stroke: #2ecc71; 
 }
 
-/* Hover effect */
+.generation-2 rect { 
+  fill: #2ecc71; 
+  stroke: #52d96d; 
+}
+
+.generation-3 rect { 
+  fill: #52d96d; 
+  stroke: #7dde86; 
+}
+
+.generation-4 rect { 
+  fill: #7dde86; 
+  stroke: #a8e6a8; 
+}
+
+.generation-5 rect { 
+  fill: #a8e6a8; 
+  stroke: #d4f4dd; 
+}
+
+/* Hover effect - glowing */
 .tree-node:hover rect {
-  filter: drop-shadow(0 6px 12px rgba(45, 80, 22, 0.4));
+  filter: drop-shadow(0 0 16px rgba(46, 204, 113, 0.8)) drop-shadow(0 0 4px rgba(0, 255, 0, 0.6));
   stroke-width: 3;
 }
 
 .tree-node:hover text {
-  font-weight: 600;
+  font-weight: 700;
+  fill: #fff;
 }
 
 /* Responsive Design */
@@ -181,7 +190,7 @@ header p {
   }
 
   .tree-node text {
-    font-size: 10px;
+    font-size: 11px;
   }
 }
 
@@ -192,16 +201,23 @@ header p {
 }
 
 #tree-container::-webkit-scrollbar-track {
-  background: #e8dfd5;
+  background: #1a1a3a;
   border-radius: 10px;
 }
 
 #tree-container::-webkit-scrollbar-thumb {
-  background: var(--tree-trunk);
+  background: #2ecc71;
   border-radius: 10px;
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 6px rgba(46, 204, 113, 0.5);
 }
 
 #tree-container::-webkit-scrollbar-thumb:hover {
-  background: var(--tree-accent);
+  background: #52d96d;
+  box-shadow: 0 0 12px rgba(46, 204, 113, 0.8);
+}
+
+/* Loading state */
+#tree-container p {
+  color: #2ecc71;
+  text-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
 }

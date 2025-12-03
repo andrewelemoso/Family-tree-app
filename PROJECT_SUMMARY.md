@@ -336,7 +336,7 @@ You've successfully created a professional web application that transforms your 
 
 **Built with ❤️ for the Adesina-Sobowale Family**
 
-*"Now you know where you belong." - Elemoso Abee*
+*"Now you know where you belong." - Elemoso Abeeb*
 
 ---
 

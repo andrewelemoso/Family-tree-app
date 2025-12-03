@@ -140,7 +140,7 @@ Check it out: https://andrewelemoso.github.io/Family-tree-app
 - Explore relationships and connections
 - Mobile-friendly (works on your phone!)
 
-Thanks to Elemoso Abee for compiling all this information!
+Thanks to Elemoso Abeeb for compiling all this information!
 
 Enjoy exploring your family tree! 🌳"
 ```

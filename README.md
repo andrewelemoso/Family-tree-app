@@ -121,7 +121,7 @@ The document mentions several incomplete sections:
 
 ## Contact & Contributions
 
-- **Original Compiler**: Elemoso Abee
+- **Original Compiler**: Elemoso Abeeb
 - **Web App Development**: Family volunteers
 - **Repository**: https://github.com/andrewelemoso/Family-tree-app
 
@@ -133,4 +133,4 @@ This family history is shared for posterity and collective family knowledge. Ple
 
 **Last Updated**: November 24, 2025
 
-*"Now you know where you belong." - Elemoso Abee*
+*"Now you know where you belong." - Elemoso Abeeb*

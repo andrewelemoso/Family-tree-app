@@ -1,6 +1,6 @@
 // ========================================
-// FAMILY TREE VISUALIZER - SIMPLIFIED
-// Visual tree display only, no interactions
+// FAMILY TREE VISUALIZER - FIXED
+// Visual tree display with proper rendering
 // ========================================
 
 async function loadFamilyTree() {
@@ -9,11 +9,12 @@ async function loadFamilyTree() {
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
     
     const data = await response.json();
+    console.log('Family data loaded:', data.members.length, 'members');
     renderTree(data);
   } catch (error) {
     console.error('Error loading family tree:', error);
     document.getElementById('tree-container').innerHTML = 
-      '<p style="color: #e74c3c; font-size: 1.1rem;">Error loading family tree. Please check console.</p>';
+      '<p style="color: #2ecc71; font-size: 1.1rem;">Error loading family tree. Check console.</p>';
   }
 }
 
@@ -23,93 +24,113 @@ function renderTree(familyData) {
   // Build the tree structure
   const treeStructure = buildTreeStructure(familyData);
   
-  // Calculate dimensions
-  const nodeWidth = 140;
-  const nodeHeight = 50;
-  const xSpacing = 160;
-  const ySpacing = 100;
+  if (!treeStructure) {
+    console.error('Failed to build tree structure');
+    container.innerHTML = '<p>Error: Could not build family tree</p>';
+    return;
+  }
   
-  // Calculate bounding box
+  console.log('Tree structure built, root:', treeStructure.name);
+  
+  // Calculate dimensions
+  const nodeWidth = 150;
+  const nodeHeight = 60;
+  const xSpacing = 180;
+  const ySpacing = 120;
+  
+  // Calculate all positions
   let minX = Infinity, maxX = -Infinity;
   let minY = Infinity, maxY = -Infinity;
-  
   const positions = new Map();
   
-  function calculatePositions(node, x, y, siblingIndex, totalSiblings) {
-    const siblingOffset = (totalSiblings - 1) * xSpacing / 2;
+  function calculatePositions(node, x, y, siblingIndex, totalSiblings, generation) {
+    if (!node) return;
+    
+    const siblingOffset = totalSiblings > 1 ? (totalSiblings - 1) * xSpacing / 2 : 0;
     const nodeX = x + siblingIndex * xSpacing - siblingOffset;
     const nodeY = y;
     
-    positions.set(node.id, { x: nodeX, y: nodeY });
+    positions.set(node.id, { x: nodeX, y: nodeY, generation });
     
-    minX = Math.min(minX, nodeX - nodeWidth / 2);
-    maxX = Math.max(maxX, nodeX + nodeWidth / 2);
-    minY = Math.min(minY, nodeY - nodeHeight / 2);
-    maxY = Math.max(maxY, nodeY + nodeHeight / 2);
+    minX = Math.min(minX, nodeX);
+    maxX = Math.max(maxX, nodeX);
+    minY = Math.min(minY, nodeY);
+    maxY = Math.max(maxY, nodeY);
     
     if (node.children && node.children.length > 0) {
       node.children.forEach((child, index) => {
-        calculatePositions(child, nodeX, nodeY + ySpacing, index, node.children.length);
+        calculatePositions(child, nodeX, nodeY + ySpacing, index, node.children.length, generation + 1);
       });
     }
   }
   
-  // Start from root, centered at 0, 0
-  if (treeStructure) {
-    calculatePositions(treeStructure, 0, 0, 0, 1);
-  }
+  calculatePositions(treeStructure, 0, 0, 0, 1, 0);
+  
+  console.log('Positions calculated. Total nodes:', positions.size);
   
   // Add padding
-  const padding = 50;
-  const width = maxX - minX + padding * 2;
-  const height = maxY - minY + padding * 2;
+  const padding = 60;
+  const width = maxX - minX + nodeWidth + padding * 2;
+  const height = maxY - minY + nodeHeight + padding * 2;
   
   // Create SVG
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   svg.setAttribute('width', width);
   svg.setAttribute('height', height);
-  svg.setAttribute('viewBox', `${minX - padding} ${minY - padding} ${width} ${height}`);
-  svg.style.overflow = 'visible';
+  svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+  svg.style.display = 'block';
   
-  // Draw connections first (so they appear behind nodes)
-  if (treeStructure) {
-    drawConnections(treeStructure, positions, svg);
-  }
+  // Calculate viewBox offset
+  const viewBoxX = minX - nodeWidth / 2 - padding;
+  const viewBoxY = minY - nodeHeight / 2 - padding;
+  svg.setAttribute('viewBox', `${viewBoxX} ${viewBoxY} ${width} ${height}`);
+  svg.style.overflow = 'visible';
+  svg.style.maxWidth = '100%';
+  svg.style.height = 'auto';
+  
+  // Draw connections (lines)
+  drawConnections(treeStructure, positions, svg);
   
   // Draw nodes
-  if (treeStructure) {
-    drawNodes(treeStructure, positions, svg, 0);
-  }
+  drawNodes(treeStructure, positions, svg);
   
+  // Clear and append
   container.innerHTML = '';
   container.appendChild(svg);
+  
+  console.log('Tree rendered successfully');
 }
 
 function buildTreeStructure(familyData) {
   if (!familyData.members || familyData.members.length === 0) {
-    console.error('No members found in family data');
+    console.error('No members in family data');
     return null;
   }
   
-  // Create a map of all members by ID
+  // Create member map with children array
   const memberMap = new Map();
   familyData.members.forEach(member => {
-    memberMap.set(member.id, { ...member, children: [] });
+    memberMap.set(member.id, {
+      ...member,
+      children: []
+    });
   });
   
-  // Build parent-child relationships
+  // Build relationships
   let root = null;
+  
   memberMap.forEach(member => {
-    if (member.parents && member.parents.length > 0) {
-      const parentId = member.parents[0]; // Use first parent as reference
+    if (!member.parents || member.parents.length === 0) {
+      // This is a root node
+      if (!root || member.generation === 0) {
+        root = member;
+      }
+    } else {
+      // Find parent and add as child
+      const parentId = member.parents[0];
       const parent = memberMap.get(parentId);
       if (parent) {
         parent.children.push(member);
-      }
-    } else {
-      // This is a root node (no parents)
-      if (!root || member.generation === 0) {
-        root = member;
       }
     }
   });
@@ -118,70 +139,81 @@ function buildTreeStructure(familyData) {
 }
 
 function drawConnections(node, positions, svg) {
+  if (!node || !node.children || node.children.length === 0) return;
+  
   const nodePos = positions.get(node.id);
   if (!nodePos) return;
   
-  if (node.children && node.children.length > 0) {
-    // Calculate middle point where lines meet
-    const childPositions = node.children
-      .map(child => positions.get(child.id))
-      .filter(pos => pos !== undefined);
-    
-    if (childPositions.length === 0) return;
-    
-    const minChildX = Math.min(...childPositions.map(p => p.x));
-    const maxChildX = Math.max(...childPositions.map(p => p.x));
-    const childY = childPositions[0].y;
-    const midX = (minChildX + maxChildX) / 2;
-    
-    // Vertical line from parent down
-    const line1 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    line1.setAttribute('x1', nodePos.x);
-    line1.setAttribute('y1', nodePos.y + 25);
-    line1.setAttribute('x2', nodePos.x);
-    line1.setAttribute('y2', childY - 25);
-    line1.setAttribute('class', 'tree-link');
-    svg.appendChild(line1);
-    
-    // Horizontal line connecting children
+  const childPositions = node.children
+    .map(child => ({ child, pos: positions.get(child.id) }))
+    .filter(item => item.pos !== undefined);
+  
+  if (childPositions.length === 0) return;
+  
+  const minChildX = Math.min(...childPositions.map(item => item.pos.x));
+  const maxChildX = Math.max(...childPositions.map(item => item.pos.x));
+  const childY = childPositions[0].pos.y;
+  
+  // Vertical line from parent
+  const line1 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+  line1.setAttribute('x1', nodePos.x);
+  line1.setAttribute('y1', nodePos.y + 30);
+  line1.setAttribute('x2', nodePos.x);
+  line1.setAttribute('y2', childY - 30);
+  line1.setAttribute('class', 'tree-link');
+  svg.appendChild(line1);
+  
+  // Horizontal line connecting children
+  if (childPositions.length > 1) {
     const line2 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
     line2.setAttribute('x1', minChildX);
-    line2.setAttribute('y1', childY - 25);
+    line2.setAttribute('y1', childY - 30);
     line2.setAttribute('x2', maxChildX);
-    line2.setAttribute('y2', childY - 25);
+    line2.setAttribute('y2', childY - 30);
     line2.setAttribute('class', 'tree-link');
     svg.appendChild(line2);
     
-    // Lines from horizontal line to each child
-    childPositions.forEach((childPos) => {
+    // Lines from horizontal to each child
+    childPositions.forEach(item => {
       const line3 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-      line3.setAttribute('x1', childPos.x);
-      line3.setAttribute('y1', childY - 25);
-      line3.setAttribute('x2', childPos.x);
-      line3.setAttribute('y2', childY - 25);
+      line3.setAttribute('x1', item.pos.x);
+      line3.setAttribute('y1', childY - 30);
+      line3.setAttribute('x2', item.pos.x);
+      line3.setAttribute('y2', childY - 30);
       line3.setAttribute('class', 'tree-link');
       svg.appendChild(line3);
     });
-    
-    // Recursively draw connections for children
-    node.children.forEach(child => {
-      drawConnections(child, positions, svg);
-    });
+  } else if (childPositions.length === 1) {
+    // Single child - just connect directly
+    const line2 = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line2.setAttribute('x1', childPositions[0].pos.x);
+    line2.setAttribute('y1', childY - 30);
+    line2.setAttribute('x2', childPositions[0].pos.x);
+    line2.setAttribute('y2', childY - 30);
+    line2.setAttribute('class', 'tree-link');
+    svg.appendChild(line2);
   }
+  
+  // Recursively draw for children
+  node.children.forEach(child => {
+    drawConnections(child, positions, svg);
+  });
 }
 
-function drawNodes(node, positions, svg, generation) {
+function drawNodes(node, positions, svg) {
+  if (!node) return;
+  
   const pos = positions.get(node.id);
   if (!pos) return;
   
-  const nodeWidth = 140;
-  const nodeHeight = 50;
+  const nodeWidth = 150;
+  const nodeHeight = 60;
   const x = pos.x - nodeWidth / 2;
   const y = pos.y - nodeHeight / 2;
   
-  // Create group for node
+  // Create node group
   const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-  g.setAttribute('class', `tree-node generation-${Math.min(generation, 5)}`);
+  g.setAttribute('class', `tree-node generation-${Math.min(pos.generation, 5)}`);
   g.setAttribute('data-id', node.id);
   
   // Background rectangle
@@ -192,28 +224,32 @@ function drawNodes(node, positions, svg, generation) {
   rect.setAttribute('height', nodeHeight);
   g.appendChild(rect);
   
+  // Display name
+  const displayName = (node.nickname || node.name || 'Unknown').substring(0, 18);
+  
   // Text
   const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
   text.setAttribute('x', pos.x);
-  text.setAttribute('y', pos.y + 5);
+  text.setAttribute('y', pos.y);
   text.setAttribute('text-anchor', 'middle');
-  text.setAttribute('dy', '.3em');
-  
-  // Get display name
-  const displayName = node.nickname || node.name || 'Unknown';
-  text.textContent = displayName.substring(0, 16);
-  
+  text.setAttribute('dy', '.35em');
+  text.textContent = displayName;
   g.appendChild(text);
+  
   svg.appendChild(g);
   
   // Draw children
   if (node.children && node.children.length > 0) {
     node.children.forEach(child => {
-      drawNodes(child, positions, svg, generation + 1);
+      drawNodes(child, positions, svg);
     });
   }
 }
 
 // Initialize on page load
-document.addEventListener('DOMContentLoaded', loadFamilyTree);
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', loadFamilyTree);
+} else {
+  loadFamilyTree();
+}
 

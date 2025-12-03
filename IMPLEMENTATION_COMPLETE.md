@@ -251,4 +251,4 @@ cd "/Users/drew/Desktop/Family tree app"
 
 **Built with ❤️ for the Adesina-Sobowale family**
 
-*"Now you know where you belong." - Elemoso Abee*
+*"Now you know where you belong." - Elemoso Abeeb*

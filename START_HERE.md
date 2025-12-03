@@ -304,7 +304,7 @@ family-tree-app/
 - ✅ Permanent record of family history
 - ✅ Reference for future generations
 - ✅ Growth as more data added
-- ✅ Celebration of Elemoso Abee's work
+- ✅ Celebration of Elemoso Abeeb's work
 
 ---
 
@@ -352,7 +352,7 @@ https://andrewelemoso.github.io/Family-tree-app
 You've created something special:
 - A bridge connecting 400+ family members
 - A visual celebration of the Adesina-Sobowale dynasty
-- An interactive tribute to Elemoso Abee's documentation
+- An interactive tribute to Elemoso Abeeb's documentation
 - A permanent digital legacy for future generations
 - A modern showcase of your family history
 
@@ -369,6 +369,6 @@ Deploy it now, share the link, and watch your family explore their heritage thro
 ---
 
 *Built with ❤️ and code*  
-*"Now you know where you belong." - Elemoso Abee*
+*"Now you know where you belong." - Elemoso Abeeb*
 
 **Ready to deploy?** Follow the CHECKLIST.md file and you'll be live in 5 minutes! 🚀
